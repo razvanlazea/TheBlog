@@ -1,0 +1,73 @@
+#header {
+	display: flex;
+	justify-content: space-between;
+	background-color: lightgrey;
+	color: black;
+	font-size: 50px;
+	border-radius: 20px;
+	height: 130px;
+	width: auto;
+	margin: -10px;
+}
+
+#theblog {
+	width: auto;
+	position: relative;
+	margin: auto;
+	font-family: times;
+}
+
+#login {
+	font-size: 15px;
+}
+
+#add {
+	display: none;
+}
+
+.articles {
+	display: block;
+	background-color: grey;
+	width: 800px;
+	position: relative;
+	margin: auto;
+	border-radius: 20px;
+	top: 70px;
+	text-align: center;
+}
+
+#indexArticles {
+	width: auto;
+	position: absolute;
+	height: 100px;
+}
+
+.articleLink {
+	text-decoration: none;
+}
+
+div.indexArticle {
+	background-color: lightgrey;
+	position: relative;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-left: auto;
+	border-radius: 10px;
+	width: 700px;
+}
+
+div.artHead {
+	font-size: 30px;
+}
+
+div.indexArtBody {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+#pages {
+	position: absolute;
+	margin: auto;
+	text-align: center;
+}

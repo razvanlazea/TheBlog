@@ -1,0 +1,16 @@
+<div id = "header">
+	<p id = "theblog"> The Blog </p> 
+	<%if !$logged %>
+		<div id = "login">
+	 		<%= form_for :posts, :url => {:action => "valid_user_and_pass"}, method: :get do |f| %>
+	 			User: <%= f.text_field :name, value: "user"%><br/>
+	 			Password: <%= f.password_field :pass, value: "password" %>
+
+	 		<%= f.submit "Login"%>
+	 		<%end%>
+	 	</div>
+	<%else %>
+	 	<%= button_to "Add Article", new_post_path,  method: :get%>
+	 	<%= button_to "Logout", logout_posts_path, method: :get %>
+	<%end %> 
+</div>

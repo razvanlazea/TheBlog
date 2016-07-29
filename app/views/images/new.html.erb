@@ -1,0 +1,6 @@
+<p>Add image</p><br/>
+
+<%= form_for :images, :url => {:action => "create"}, html: {multipart: true}, method: :post do |f| %>
+	<%= f.file_field :img %>
+	<%= f.submit "Add image" %>
+<% end %>
