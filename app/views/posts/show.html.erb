@@ -5,10 +5,15 @@
 	<% @post.images.each do |i| %>
 	<%= image_tag i.img.url(:large) %>
 	<%end%>
+	Comments
+	<% @post.comments.each do |comment| %>
+		<%= render partial: "comment", object: comment %>
+	<%end%>
 	<br/>Add a comment <br/>
-	<%= form_for :comments, :url => {:controller => "comments_controller", :action => "create"}, method: :post do |f| %>
-		Name: <%= f.text_field :name %><br/>
-		<%= f.text_area :content, cols: 70, rows: 10 %>
-		<%= f.submit "Add comment" %>
-	<% end %>
+		<%= form_for ([@comment.post, @comment]) do |f| %>
+			Name: <br/><%= f.text_field :name %> <br/>
+			Content: <br/><%= f.text_area :content, cols: 70, rows: 6 %> <br/>
+			<%= f.submit "Post comment" %>
+		<%end%>
 </div>
+

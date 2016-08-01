@@ -1,0 +1,5 @@
+<%= form_for @comment, :url => {:action => "create"} do |f| %>
+		Name: <%= f.text_field :name %><br/>
+		<%= f.text_area :content, cols: 70, rows: 10 %>
+		<%= f.submit "Add comment" %>
+<% end %>

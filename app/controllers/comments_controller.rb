@@ -1,17 +1,24 @@
 class CommentsController < ApplicationController
+  def index
+  	@comments = Post.find_by_id(params[:post_id]).comments
+  end
+
   def new
+  	@comment = Comment.new
   end
 
   def create
-  	@post = Post.find(params[:post_id])
-  	@comment = Comment.new(comment_params)
-  	if @comment.save
-  		redirect_to posts_path
+    puts comment_params.to_yaml
+    	@comment = Comment.new(comment_params)
+      @comment.post_id = params[:post_id]
+      	
+    if @comment.save
+  		redirect_to Post.find_by_id(params[:post_id]) 
   	end
   end
 
 
   def comment_params
-  	params.require(:comments).permit(:name, :content, :post_id)
+  	params.require(:comment).permit(:name, :content, :post_id)
   end
 end

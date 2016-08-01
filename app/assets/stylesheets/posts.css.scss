@@ -15,6 +15,7 @@
 	position: relative;
 	margin: auto;
 	font-family: times;
+	font-size: 50px;
 }
 
 #login {
@@ -70,4 +71,20 @@ div.indexArtBody {
 	position: absolute;
 	margin: auto;
 	text-align: center;
+}
+
+.comName {
+	background-color: white;
+	height: 20px;
+	width: auto;
+	display: flex;
+	font-weight: bold;
+}
+
+.comContent {
+	background-color: lightgrey;
+	height: auto;
+	width: auto;
+	display: block;
+	text-align: left
 }

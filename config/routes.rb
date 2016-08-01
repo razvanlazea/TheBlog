@@ -1,7 +1,6 @@
 TheBlog::Application.routes.draw do
-  get "comments/new"
-  get "comments/create"
   resources :posts do
+    resources :comments
     collection do
       get 'valid_user_and_pass'
       get 'logout'
@@ -9,7 +8,7 @@ TheBlog::Application.routes.draw do
   end
   root 'posts#index'
   resources :images
-  resources :comments
+  # resources :comments
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

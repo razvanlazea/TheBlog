@@ -6,7 +6,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @img = Image.new
   end
 
   def create
@@ -16,8 +15,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
+  def show   
     @post = Post.find(params[:id])
+    @comment = @post.comments.new 
   end
 
   def edit
