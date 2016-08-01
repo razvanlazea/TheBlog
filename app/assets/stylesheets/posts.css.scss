@@ -1,13 +1,19 @@
+body {
+	background: linear-gradient(#331a00, white);
+	background-repeat: no-repeat;
+}
+
 #header {
-	display: flex;
-	justify-content: space-between;
+	text-align: center;
 	background-color: lightgrey;
 	color: black;
 	font-size: 50px;
-	border-radius: 20px;
 	height: 130px;
 	width: auto;
+	min-width: 900px;
 	margin: -10px;
+	background-color: skyblue;
+ 	border-bottom: 5px solid ghostwhite;
 }
 
 #theblog {
@@ -15,11 +21,15 @@
 	position: relative;
 	margin: auto;
 	font-family: times;
-	font-size: 50px;
+	font-size: 60px;
+	top: 20%;
 }
 
 #login {
 	font-size: 15px;
+	text-align: right;
+	position: relative;
+	top: -40%;
 }
 
 #add {
@@ -28,13 +38,16 @@
 
 .articles {
 	display: block;
-	background-color: grey;
 	width: 800px;
 	position: relative;
 	margin: auto;
-	border-radius: 20px;
-	top: 70px;
+	border-radius: 0px 0px 10px 10px;
+	top: -15px;
 	text-align: center;
+	background: linear-gradient(skyblue, white);
+	box-shadow: 10px 10px 5px grey;
+	border-right: 4px solid ghostwhite;
+	border-bottom: 4px solid white;
 }
 
 #indexArticles {
@@ -48,23 +61,35 @@
 }
 
 div.indexArticle {
-	background-color: lightgrey;
+	background-color: ghostwhite;
 	position: relative;
 	margin-top: 20px;
 	margin-right: auto;
 	margin-left: auto;
 	border-radius: 10px;
 	width: 700px;
+	height: auto;
+	border-bottom: 3px solid lightgrey;
+	border-right: 3px solid lightgrey;
+	box-shadow: 5px 5px 2px grey;
+	margin-bottom: 10px;
 }
 
 div.artHead {
 	font-size: 30px;
+	text-align: left;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-bottom: 2px solid lightgrey;
 }
 
 div.indexArtBody {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	text-align: left;
+	margin-left: 10px;
+	margin-top: 5px;
 }
 
 #pages {
@@ -74,17 +99,48 @@ div.indexArtBody {
 }
 
 .comName {
-	background-color: white;
 	height: 20px;
 	width: auto;
 	display: flex;
 	font-weight: bold;
+	margin-bottom: 5px;
+	border-bottom: 1px solid ghostwhite;
 }
 
 .comContent {
-	background-color: lightgrey;
 	height: auto;
 	width: auto;
 	display: block;
-	text-align: left
+	text-align: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid grey;
+	border-right: 1px solid grey;
+	
+	box-shadow: 3px 3px 2px grey;
+	border-radius: 6px;
+
+}
+
+.newComment {
+	text-align: left;
+	margin-left: 10px;
+}
+
+.comments{
+	border-radius: 50px;
+}
+
+.showArtBody {
+	text-align: left;
+	margin-left: 10px;
+	margin-top: 5px;
+}
+
+.author {
+	color: grey;
+	text-align: left;
+	margin-left: 10px;
+	font-style: italic;
 }

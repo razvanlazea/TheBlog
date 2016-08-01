@@ -10,6 +10,8 @@ gem 'will_paginate'
 
 gem 'paperclip'
 
+gem 'carrierwave'
+
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

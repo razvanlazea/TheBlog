@@ -2,7 +2,9 @@
 	<div class = "artHead">
 		<%= link_to article.title, article, :class => "articleLink" %>
 	</div>
-
+	<div class = "author">
+		Author: <%= article.name %>
+	</div>
 	<div class = "indexArtBody">
 		<%= article.content %>
 	</div>

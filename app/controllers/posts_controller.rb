@@ -9,7 +9,9 @@ class PostsController < ApplicationController
   end
 
   def create
+    
     @post = Post.new(post_params)
+    @post.images << Image.find_by_img_file_name(params[:posts][:img].original_filename)
     if @post.save
       redirect_to posts_url
     end
@@ -22,7 +24,7 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    @post.images << Image.find(4)
+    # @post.images << Image.find(4)
   end
 
   def update
@@ -39,7 +41,7 @@ class PostsController < ApplicationController
   # end
 
   def post_params    
-    params.require(:posts).permit(:name, :title, :content)
+    params.require(:posts).permit(:name, :title, :content, {img: []})
   end
 
   def update_params

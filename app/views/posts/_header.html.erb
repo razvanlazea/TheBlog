@@ -6,11 +6,13 @@
 	 			User: <%= f.text_field :name, value: "user"%><br/>
 	 			Password: <%= f.password_field :pass, value: "password" %>
 
-	 		<%= f.submit "Login"%>
+	 		<br/><%= f.submit "Login"%>
 	 		<%end%>
 	 	</div>
 	<%else %>
-	 	<%= button_to "Add Article", new_post_path,  method: :get%>
-	 	<%= button_to "Logout", logout_posts_path, method: :get %>
+		<div id = "login">
+	 		<%= button_to "Add Article", new_post_path,  method: :get%>
+	 		<%= button_to "Logout", logout_posts_path, method: :get %>
+		</div>
 	<%end %> 
 </div>
