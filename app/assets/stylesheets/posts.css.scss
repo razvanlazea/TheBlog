@@ -41,9 +41,9 @@ body {
 	width: 800px;
 	position: relative;
 	margin: auto;
+	text-align: center;
 	border-radius: 0px 0px 10px 10px;
 	top: -15px;
-	text-align: center;
 	background: linear-gradient(skyblue, white);
 	box-shadow: 10px 10px 5px grey;
 	border-right: 4px solid ghostwhite;
@@ -90,10 +90,11 @@ div.indexArtBody {
 	text-align: left;
 	margin-left: 10px;
 	margin-top: 5px;
+	margin-bottom: 5px;
+	clear: both;
 }
 
 #pages {
-	position: absolute;
 	margin: auto;
 	text-align: center;
 }
@@ -136,6 +137,7 @@ div.indexArtBody {
 	text-align: left;
 	margin-left: 10px;
 	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
 .author {
@@ -143,4 +145,29 @@ div.indexArtBody {
 	text-align: left;
 	margin-left: 10px;
 	font-style: italic;
+	display: inline-block;
+	float: left;
+}
+
+.month {
+	border-right: 3px solid darkgrey;
+	border-bottom: 3px solid darkgrey;
+
+	/*height: 20px;*/
+	width: 50px;
+	text-align: center;
+	font-size: 20px;
+	border-radius: 7px;
+	position: relative;
+	margin-right: 10px;
+	float: right;
+	background-color: ghostwhite;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.day {
+	border-radius: 7px 5px 0px 0px;
+	background-color: orange;
+
 }

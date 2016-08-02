@@ -3,7 +3,13 @@
 		<%= link_to article.title, article, :class => "articleLink" %>
 	</div>
 	<div class = "author">
-		Author: <%= article.name %>
+		By <%= article.name %>
+	</div>
+	<div class = "month">
+		<div class = "day">
+			<%= article.created_at.day %>
+		</div>
+		<%= article.created_at.strftime("%B").slice 0...3 %>
 	</div>
 	<div class = "indexArtBody">
 		<%= article.content %>
