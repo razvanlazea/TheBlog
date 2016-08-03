@@ -8,7 +8,9 @@
 	<div class = "comments">	
 		<br/>Comments
 		<% @post.comments[0...-1].each do |comment| %>
-			<%= render partial: "comment", object: comment %>
+			<div id = "comDiv">
+				<%= render partial: "comment", object: comment %>
+			</div>
 		<%end%>
 	</div>
 	<br/>Add a comment <br/>
@@ -16,7 +18,7 @@
 		<%= form_for ([@comment.post, @comment]) do |f| %>
 			Name: <br/><%= f.text_field :name %> <br/>
 			Comment: <br/><%= f.text_area :content, cols: 70, rows: 6 %> <br/>
-			<%= f.submit "Post comment" %>
+			<%= f.submit "Post comment"%>
 		<%end%>
 		</div>
 </div>

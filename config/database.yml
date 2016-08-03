@@ -22,6 +22,7 @@ test:
   pool: 5
   username: razvan
   password: password
+  host: localhost
 
 # production:
 #   adapter: sqlite3

@@ -50,29 +50,11 @@ ActiveRecord::Schema.define(version: 20160802105914) do
     t.text     "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "imgs",       default: [], array: true
-  end
-
-  create_table "rezs", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.text     "sala"
-  end
-
-  create_table "rezs_users", id: false, force: true do |t|
-    t.integer "user_id"
-    t.integer "rez_id"
-  end
-
-  add_index "rezs_users", ["rez_id"], name: "index_rezs_users_on_rez_id", using: :btree
-  add_index "rezs_users", ["user_id"], name: "index_rezs_users_on_user_id", using: :btree
-
-  create_table "users", force: true do |t|
-    t.text     "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "age"
-    t.text     "email"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "imgs",                default: [], array: true
   end
 
 end

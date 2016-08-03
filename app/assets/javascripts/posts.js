@@ -19,3 +19,8 @@ function addImage(divName){
 	// newDiv.innerHTML = <%= i.file_field :img %>;
 	// document.getElementById(divName).appendChild(newDiv);
 }
+
+function addComment(divName){
+	var existingInput = $('#'+divName).find('input:first-child');
+	$('#'+divName).append(existingInput.clone());
+}

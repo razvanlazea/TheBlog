@@ -12,8 +12,8 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "should get create" do
-    get :create
-    assert_response :success
+    post :create, {post: {content: 'con', image: []}}
+    assert_response :redirect
   end
 
 end

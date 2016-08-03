@@ -1,5 +1,5 @@
 <div id = "header">
-	<p id = "theblog"> The Blog </p> 
+	<%= link_to "The Blog", root_path, :id => "theblog" %>
 	<%if !$logged %>
 		<div id = "login">
 	 		<%= form_for :posts, :url => {:action => "valid_user_and_pass"}, method: :get do |f| %>
