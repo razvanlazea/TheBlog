@@ -5,12 +5,14 @@ class ImagesController < ApplicationController
 
 	def create
 		@image = Image.new(image_params)
+		@image.post_id = params[:post_id]
+		
 		if @image.save
-			redirect_to new_image_path
+			redirect_to posts_url
 		end
 	end
 
 	def image_params
-		params.require(:images).permit(:img)
+		params.require(:images).permit(:img, :post_id)
 	end
 end

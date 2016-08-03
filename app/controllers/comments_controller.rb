@@ -8,7 +8,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-    puts comment_params.to_yaml
     	@comment = Comment.new(comment_params)
       @comment.post_id = params[:post_id]
       	

@@ -6,13 +6,17 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @image = @post.images.new
   end
 
   def create
-    
+    # puts params.to_yaml
     @post = Post.new(post_params)
-    @post.images << Image.find_by_img_file_name(params[:posts][:img].original_filename)
-    if @post.save
+    params['post']['image'].each do |key, value|
+      @post.images << Image.new(:img => value, :post_id => params[:post_id])
+    end
+      
+    if @post.save #&& @image.save
       redirect_to posts_url
     end
   end
@@ -35,18 +39,14 @@ class PostsController < ApplicationController
     end
   end
 
-  private
-  # def set_post
-  #   @post = Post.find(params[:id])
-  # end
-
   def post_params    
-    params.require(:posts).permit(:name, :title, :content, {img: []})
+    params.require(:post).permit(:name, :title, :content, :image, :post_id)
   end
 
-  def update_params
-    params.permit(:id)
+  def image_params
+    params.permit(:image, :post_id)
   end
+
   public
   def valid_user_and_pass
         params.to_yaml

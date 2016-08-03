@@ -1,5 +1,6 @@
 TheBlog::Application.routes.draw do
   resources :posts do
+    resources :images
     resources :comments
     collection do
       get 'valid_user_and_pass'
@@ -7,7 +8,6 @@ TheBlog::Application.routes.draw do
     end
   end
   root 'posts#index'
-  resources :images
   # resources :comments
 
   # The priority is based upon order of creation: first created -> highest priority.

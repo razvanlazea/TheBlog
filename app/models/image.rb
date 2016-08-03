@@ -1,5 +1,5 @@
 class Image < ActiveRecord::Base
-	has_and_belongs_to_many :posts
+	belongs_to :post
 	has_attached_file :img, styles: {
 		small: "64x64",
 		med: "100x100",

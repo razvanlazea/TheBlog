@@ -1,11 +1,20 @@
 <%= render(partial: "header") %>
 <div class = "articles">
-	<%= form_for :posts, :url => {:action => "create"}, :html => {multipart: true}, method: :post do |f| %>
+	<%= form_for :post, :url => {:action => "create"}, :html => {multipart: true}, method: :post do |f| %>
 		Author: <br/> <%= f.text_field :name %><br/>
 		Title: <br/> <%= f.text_field :title %><br/>
 		Content: <br/> <%= f.text_area :content, cols: 31, rows: 30 %>
-		<br/>Add Photos: <%= f.file_field :img, multiple: true %>
 		<br/>
+		<%= f.fields_for :image do |i| %>
+			<div id = "im">
+				<%= i.file_field :img %><br/>
+			</div>
+			<button type = "button" onclick = "addImage('im')"> + </button>
+
+		<% end %>
+		
 		<%= f.submit "Post article" %>
 	<%end %>
+	
 </div>
+
