@@ -9,6 +9,8 @@ gem 'paperclip'
 
 gem 'carrierwave'
 
+gem 'rails_12factor', group: :production
+
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
