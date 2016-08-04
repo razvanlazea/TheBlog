@@ -12,10 +12,11 @@ class PostsController < ApplicationController
   def create
     # puts params.to_yaml
     @post = Post.new(post_params)
-    params['post']['image'].each do |key, value|
-      @post.images << Image.new(:img => value, :post_id => params[:post_id])
+    if params[:post][:image]
+      params['post']['image'].each do |key, value|
+        @post.images << Image.new(:img => value, :post_id => params[:post_id])
+      end
     end
-      
     if @post.save #&& @image.save
       redirect_to posts_url
     end
@@ -45,21 +46,5 @@ class PostsController < ApplicationController
 
   def image_params
     params.permit(:image, :post_id)
-  end
-
-  public
-  def valid_user_and_pass
-        params.to_yaml
-      if params[:posts][:name] == USER
-        $logged = true
-        redirect_to posts_url
-      else
-        redirect_to posts_url
-      end
-  end
-
-  def logout
-    $logged = false
-    redirect_to posts_url
   end
 end

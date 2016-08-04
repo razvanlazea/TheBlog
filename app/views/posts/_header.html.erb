@@ -1,18 +1,20 @@
 <div id = "header">
 	<%= link_to "The Blog", root_path, :id => "theblog" %>
-	<%if !$logged %>
+		<%if !session[:user_id] %> 
 		<div id = "login">
-	 		<%= form_for :posts, :url => {:action => "valid_user_and_pass"}, method: :get do |f| %>
-	 			User: <%= f.text_field :name, value: "user"%><br/>
-	 			Password: <%= f.password_field :pass, value: "password" %>
-
+	 		<%= form_for :sessions, :url => {:controller => "sessions", :action => "create"}, method: :post do |f| %>
+	 			User: <%= f.text_field :username%><br/>
+	 			Password: <%= f.password_field :password%>
+	 			<br/><%= session[:user_id].inspect %>
 	 		<br/><%= f.submit "Login"%>
 	 		<%end%>
+	 		<%= button_to "Register", new_user_path, method: :get %>
 	 	</div>
-	<%else %>
+	 	<%else%>
 		<div id = "login">
-	 		<%= button_to "Add Article", new_post_path,  method: :get%>
-	 		<%= button_to "Logout", logout_posts_path, method: :get %>
+	 		<%= button_to "Add Article", new_post_path, method: :get%>
+	 		<%= button_to "Logout", {:controller => "sessions", :action => "destroy"}, method: :delete %>
+	 		<br/><%= session[:user_id].inspect %>
 		</div>
-	<%end %> 
+		<%end %> 
 </div>

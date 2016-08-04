@@ -1,0 +1,12 @@
+<div id = "register">
+
+	<%=form_for :users, :url => {:action => "create"} do |f| %>
+		Username: <br/>
+		<%= f.text_field :username %> <br/>
+		Password: <br/>
+		<%= f.password_field :password %> <br/>
+		Name: <br/>
+		<%= f.text_field :name %> <br/>
+		<%= f.submit "Register" %>
+	<%end%>	
+</div>

@@ -1,2 +1,2 @@
-USER = "user"
-PASS = "password"
+ADMIN = "razvan"
+PASSWORD = "pass"
