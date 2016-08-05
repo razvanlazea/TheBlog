@@ -13,6 +13,13 @@ class ImagesController < ApplicationController
 	end
 
 	def image_params
-		params.require(:images).permit(:img, :post_id)
+		params.require(:images).permit(:img, :post_id, :id)
+	end
+
+	def destroy
+		@image = Image.find(params[:id])
+		@image.delete
+		post = Post.find(params[:post_id])
+		redirect_to edit_post_path(post)
 	end
 end

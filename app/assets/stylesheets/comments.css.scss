@@ -1,3 +1,46 @@
-// Place all the styles related to the comments controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+.comName {
+	height: 20px;
+	width: auto;
+	display: flex;
+	font-weight: bold;
+	margin-bottom: 5px;
+	border-bottom: 1px solid ghostwhite;
+}
+
+.comContent {
+	height: auto;
+	width: auto;
+	display: block;
+	text-align: left;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid grey;
+	border-right: 1px solid grey;
+	
+	box-shadow: 3px 3px 2px grey;
+	border-radius: 6px;
+
+}
+
+.newComment {
+	text-align: left;
+	margin-left: 10px;
+}
+
+.comments{
+	border-radius: 50px;
+}
+
+#deleteCom {
+	transition: opacity 1s;
+	text-decoration: none;
+}
+
+#deleteCom:hover {
+	opacity: 0.1;
+}

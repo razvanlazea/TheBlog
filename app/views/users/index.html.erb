@@ -1,0 +1,17 @@
+<%= render partial: "/posts/header" %>
+
+<div id = "indexUsers" >
+	<table style = "width:100%">
+		<tr>
+			<th>Username </th>
+			<th>Name </th>
+			<th>Created at </th>
+			<%if session[:admin] %>
+				<th>Delete user</th>
+			<%end%>
+		</tr>
+	<% @users.each do |user| %>
+		<%= render partial: "user", object: user %>
+	<% end %>
+	</table>
+</div>

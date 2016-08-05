@@ -5,18 +5,23 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		puts params.to_yaml
-		user = User.find_by_username(params[:sessions][:username])
-		if user && user.password == params[:sessions][:password]
-			session[:user_id] = user.id 
-			redirect_to posts_url
+		if params[:sessions][:username] == ADMIN && params[:sessions][:password] == PASSWORD
+			session[:admin] = ADMIN
+			redirect_to :back
 		else
-			redirect_to posts_url
+			user = User.find_by_username(params[:sessions][:username])
+			if user && user.password == params[:sessions][:password]
+				session[:user_id] = user.username 
+				redirect_to :back
+			else
+				redirect_to :back
+			end
 		end
 	end	
 
 	def destroy
 		session[:user_id] = nil
-		redirect_to posts_url
+		session[:admin] = nil
+		redirect_to :back
 	end
 end

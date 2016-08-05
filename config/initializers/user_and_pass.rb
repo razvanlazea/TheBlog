@@ -1,2 +1,0 @@
-ADMIN = "razvan"
-PASSWORD = "pass"

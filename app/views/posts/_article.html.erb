@@ -3,9 +3,21 @@
 	<div class = "artHead">
 		<%= article.title %>
 	</div>
+	<% if session[:user_id] %>
+		<%if article.name == session[:user_id]%>
+			<div class = "postAdmin">
+				 By	<%= article.name %> 
+			</div>
+		<% else %>
+		<div class = "author">
+				 By	<%= article.name %> 
+		</div>
+		<% end %>
+	<% else %>
 	<div class = "author">
-		By <%= article.name %>
+			 By	<%= article.name %> 
 	</div>
+	<% end %>
 	<div class = "month">
 		<div class = "day">
 			<%= article.created_at.day %>

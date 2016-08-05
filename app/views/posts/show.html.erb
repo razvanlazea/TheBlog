@@ -3,14 +3,16 @@
 <div class = "articles">
 	<%= render(partial: "showArticle") %>
 	<% @post.images.each do |i| %>
-	<%= link_to image_tag(i.img.url(:large)), i.img.url(:original), :popup => ['original_image', 'height=700, width = 900'] %>
+		<%= link_to image_tag(i.img.url(:large)), i.img.url(:original), :popup => ['original_image', 'height=700, width = 900'] %>
 	<%end%>
 	<div class = "comments">	
 		<br/>Comments
 		<% @post.comments[0...-1].each do |comment| %>
-			<div id = "comDiv">
-				<%= render partial: "comment", object: comment %>
-			</div>
+			<% if session[:admin] %>
+				<%= link_to (render partial: "comment", object: comment), {:controller => "comments", :action => "destroy", :id => comment.id, :post_id => @post.id}, method: :delete, :id => "deleteCom" %>
+			<% else %>
+				<%= render partial: "comment", object: comment %>	
+			<% end %>
 		<%end%>
 	</div>
 	<br/>Add a comment <br/>
@@ -21,5 +23,13 @@
 			<%= f.submit "Post comment"%>
 		<%end%>
 		</div>
+		<% if session[:user_id] || session[:admin]%>
+			<% if @post.name == session[:user_id] || session[:admin] == ADMIN%>
+				<% if !session[:admin] %>
+					<%= button_to "Edit article", edit_post_path, method: :get %>
+				<% end %>
+				<%= button_to "Delete article", post_path, method: :delete, data: {confirm: "Are you sure you want to permanently delete this article?"} %>
+			<%end %>
+		<% end %>	
 </div>
 
