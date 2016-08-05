@@ -22,6 +22,6 @@ class SessionsController < ApplicationController
 	def destroy
 		session[:user_id] = nil
 		session[:admin] = nil
-		redirect_to :back
+		redirect_to posts_url
 	end
 end
