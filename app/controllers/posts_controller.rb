@@ -10,13 +10,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    # puts params.to_yaml
-    params[:posts][:name] = "da"
-    puts params.to_yaml
     @post = Post.new(post_params)
     @post.name = session[:user_id]
     add_images
-    if @post.save #&& @image.save
+    if @post.save
       redirect_to posts_url
     end
   end
