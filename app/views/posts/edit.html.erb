@@ -16,7 +16,7 @@
 		<div class = "images">
 		<% @post.images.each do |i| %>
 			<div class = "deleteImage">
-			<%= link_to image_tag(i.img.url(:large)), {:controller => "images", :action => "destroy", :id => i.id, :post_id => @post.id}, method: :delete %>
+			<%= link_to image_tag(i.img.thumb), {:controller => "images", :action => "destroy", :id => i.id, :post_id => @post.id}, method: :delete %>
 			</div>
 		<%end%>
 		</div>

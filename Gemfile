@@ -9,6 +9,16 @@ gem 'paperclip'
 
 gem 'carrierwave'
 
+gem 'carrierwave-dropbox'
+
+gem 'shrine'
+
+gem 'fastimage'
+
+gem 'image_processing'
+
+gem 'mini_magick'
+
 gem 'rails_12factor', group: :production
 
 gem 'pg'
