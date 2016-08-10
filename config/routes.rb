@@ -11,6 +11,9 @@ TheBlog::Application.routes.draw do
   resources :users
   post 'sessions/create', to: "sessions#create"
   delete 'sessions/delete', to: "sessions#destroy"
+  get 'keys', to: "keys#index"
+  post 'users/find', to: "users#find"
+  post 'users/email', to: "users#email"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

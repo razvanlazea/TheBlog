@@ -11,8 +11,9 @@ class UsersController < ApplicationController
 	def create
 		@users = User.all
 		@users.each do |u|
-			if u.username == params[:users][:username]
-				redirect_to new_user_path ,flash: {error: "Errrror!"} and return
+			if u.username == params[:users][:username] || u.email == params[:users][:email]
+				flash[:notice] = "Username or email already exists."
+				redirect_to new_user_path and return
 			end
 		end
 		if params[:users][:username] == ADMIN
@@ -39,7 +40,32 @@ class UsersController < ApplicationController
 		redirect_to :back
 	end
 
+	def find
+		@user = User.find_by_email(params[:users][:email])
+		if @user 
+			# @key = Key.new
+			# @key.token = SecureRandom.uuid
+			# @key.used = false
+			# @key.users_id = @user.id
+			# @key.save
+			Email.recover_email(@user).deliver
+			redirect_to users_url
+		else
+			redirect_to posts_url
+		end
+	end
+
+	def email
+
+	end
+
+	def generate_token(column, length = 64)
+		begin
+			self[column] = SecureRandom.urlsafe_base64 length
+		end while Key.exists?(column => self[column])
+	end
+
 	def user_params
-		params.require(:users).permit(:username, :password, :name, :id)
+		params.require(:users).permit(:username, :password, :name, :id, :email)
 	end
 end

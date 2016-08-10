@@ -30,6 +30,7 @@
 .newComment {
 	text-align: left;
 	margin-left: 10px;
+	display: none;
 }
 
 .comments{
@@ -43,4 +44,17 @@
 
 #deleteCom:hover {
 	opacity: 0.1;
+}
+
+#addAComment{
+	background-color: green;
+	margin: 0px;
+	width: 150px;
+	padding: 8px;
+	position: relative;
+	left: 40%;
+}
+
+.commentMouse{
+	color: white;
 }

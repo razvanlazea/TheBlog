@@ -19,7 +19,11 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to :back
+    respond_to do |format|
+      format.html{ redirect_to Post.find(params[:post_id])}
+      format.json {head :no_content}
+      format.js  { render :layout => false}
+    end
   end
 
   def comment_params

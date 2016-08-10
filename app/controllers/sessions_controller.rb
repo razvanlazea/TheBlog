@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
 				session[:user_id] = user.username 
 				redirect_to :back
 			else
+				flash[:notice] = "Wrong username and/or password."
 				redirect_to :back
 			end
 		end

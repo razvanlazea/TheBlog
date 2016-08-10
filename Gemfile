@@ -15,6 +15,8 @@ gem 'shrine'
 
 gem 'fastimage'
 
+gem 'figaro'
+
 gem 'image_processing'
 
 gem 'mini_magick'
@@ -48,6 +50,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'jquery-turbolinks'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

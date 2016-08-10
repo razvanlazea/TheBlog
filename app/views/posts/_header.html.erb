@@ -8,6 +8,7 @@
 	 		<br/><%= f.submit "Login"%>
 	 		<%end%>
 	 		<%= button_to "Register", new_user_path, method: :get %>
+	 		<%= link_to "Forgot password", {:controller => "users", :action => "email"}, method: :post%>
 	 	</div>
 	 	<%else%>
 		<div id = "login">

@@ -15,12 +15,12 @@
 			<% end %>
 		<%end%>
 	</div>
-	<br/>Add a comment <br/>
+	<br/><p id = "addAComment">Add a comment </p><br/>
 		<div class = "newComment">
 		<%= form_for ([@comment.post, @comment]) do |f| %>
 			Name: <br/><%= f.text_field :name %> <br/>
 			Comment: <br/><%= f.text_area :content, cols: 70, rows: 6 %> <br/>
-			<%= f.submit "Post comment"%>
+			<%= button_to "Post comment"%>
 		<%end%>
 		</div>
 		<% if session[:user_id] || session[:admin]%>

@@ -1,0 +1,6 @@
+<div id = "register">
+	<%= form_for :users, :url => {:controller => "users", :action => "find"}, method: :post do |f| %>
+		Email: <%=f.email_field :email, required: true %>
+		<%=f.submit "Send email" %>
+	<%end%>
+</div>
