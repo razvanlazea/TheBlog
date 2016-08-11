@@ -4,7 +4,7 @@
 			<%=content_tag :div, msg, class: name %>
 		<% end %>
 	</div>
-	<%=form_for :users, :url => {:action => "create"}, :html => {id: "newUser"}, remote: true do |f| %>
+	<%=form_for :users, :url => {:action => "create"}, :html => {class: "newUser"}, remote: true do |f| %>
 		Username: <br/>
 		<%= f.text_field :username, :required => true%> <br/>
 		Password: <br/>

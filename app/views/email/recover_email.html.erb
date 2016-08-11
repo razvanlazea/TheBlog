@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
-<body>
-<p>This is a mail</p>
+	<body>
+		<h2>Password recovery</h2><br/>
+		<p>To change your password access the link below </p><br/>
 
-</body>
+		<%= link_to "Reset password", :controller => 'users', :action => 'edit', :only_path => false, :token => @token, host: @host%>
+	</body>	
 
 
 </html>

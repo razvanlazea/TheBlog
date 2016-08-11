@@ -42,12 +42,14 @@ class UsersController < ApplicationController
 
 	def find
 		@user = User.find_by_email(params[:users][:email])
+		
+
 		if @user 
-			# @key = Key.new
-			# @key.token = SecureRandom.uuid
-			# @key.used = false
-			# @key.users_id = @user.id
-			# @key.save
+			@key = Key.new
+			@key.token = SecureRandom.uuid
+			@key.used = false
+			@key.users_id = @user.id
+			@key.save
 			Email.recover_email(@user).deliver
 			redirect_to users_url
 		else
@@ -59,13 +61,28 @@ class UsersController < ApplicationController
 
 	end
 
-	def generate_token(column, length = 64)
-		begin
-			self[column] = SecureRandom.urlsafe_base64 length
-		end while Key.exists?(column => self[column])
+	def edit
+		@key = Key.find_by_token(params[:token])
+		if @key
+			if @key.used == true
+				render :partial => 'expired'			
+			end
+		else
+			redirect_to posts_url and return
+		end
+		@key.used = true
+		@key.save
 	end
 
+	def update
+		@user = User.find(params[:id])
+		@user.password = params[:users][:password]
+		@user.save
+		redirect_to posts_url
+	end
+
+
 	def user_params
-		params.require(:users).permit(:username, :password, :name, :id, :email)
+		params.require(:users).permit(:username, :password, :name, :id, :email, :token)
 	end
 end

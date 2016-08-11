@@ -1,0 +1,7 @@
+<div id="register">
+	<%= form_for :users, :url => {:action => 'update', :id => @key.users_id}, :html => {class: "newUser"}, remote: true, method: :put do |f|%>
+		New password<br/> <%=f.password_field :password, :required => true, class: 'regInput' %><br/>
+		Confirm password<br/> <%= f.password_field :confirm, :required => true, class: 'confirm' %>
+		<br/><%=f.submit "Submit password"%>
+	<%end%>
+</div>

@@ -14,7 +14,7 @@ TheBlog::Application.routes.draw do
   get 'keys', to: "keys#index"
   post 'users/find', to: "users#find"
   post 'users/email', to: "users#email"
-
+  get 'recovery', to: "users#edit"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -9,5 +9,8 @@ class KeysController < ApplicationController
 		@key = Key.new
 	end
 
+	def edit
+		
+	end
 
 end

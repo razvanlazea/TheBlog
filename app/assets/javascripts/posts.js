@@ -77,7 +77,7 @@ $(document).ready(function(){
 			$(this).fadeOut();
 		})
 
-		$('#newUser').submit(function(e){
+		$('.newUser').submit(function(e){
 			e.preventDefault();
 			if($('.regInput').val().length < 6 || $('.regInput').val() != $('.confirm').val()){
 				return false
