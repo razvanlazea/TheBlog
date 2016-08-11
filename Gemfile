@@ -19,6 +19,8 @@ gem 'figaro'
 
 gem 'image_processing'
 
+gem 'sendgrid'	
+
 gem 'mini_magick'
 
 gem 'rails_12factor', group: :production

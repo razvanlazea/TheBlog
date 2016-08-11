@@ -1,4 +1,5 @@
 class Email < ActionMailer::Base
+  include SendGrid
   default from: "razvansblog@gmail.com"
 
   def recover_email(user)
