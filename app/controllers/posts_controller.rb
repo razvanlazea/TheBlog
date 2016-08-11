@@ -2,13 +2,6 @@ class PostsController < ApplicationController
   # before_action :set_post, only: [:show, :edit, :update]
   def index
   	@posts = Post.all.paginate(page: params[:page], per_page: 3)
-    @keys = Key.all
-    @keys.each do |k|
-      if Time.now - k.created_at > 1.hour
-        k.used = true
-        k.save
-      end
-    end
   end
 
   def new

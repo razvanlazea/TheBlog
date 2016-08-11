@@ -64,7 +64,7 @@ class UsersController < ApplicationController
 	def edit
 		@key = Key.find_by_token(params[:token])
 		if @key
-			if @key.used == true
+			if @key.used == true || Time.now - @key.created_at > 5.minute
 				render :partial => 'expired'			
 			end
 		else
