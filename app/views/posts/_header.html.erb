@@ -7,10 +7,7 @@
 			<%end%>
 			<div id = "signIn">
 				<%=button_tag "Sign In"%>
-			</div>
-
-			<p> Some modal </p>
-
+	
 			<div id = "logFields">
 	 			<%= form_for :sessions, :url => {:controller => "sessions", :action => "create"}, method: :post do |f| %>
 	 				User: <%= f.text_field :username%><br/>
