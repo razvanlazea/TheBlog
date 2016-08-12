@@ -2,11 +2,22 @@
 	<%= link_to "The Blog", root_path, :id => "theblog" %>
 		<%if !session[:user_id] && !session[:admin] %> 
 		<div id = "login">
-	 		<%= form_for :sessions, :url => {:controller => "sessions", :action => "create"}, method: :post do |f| %>
-	 			User: <%= f.text_field :username%><br/>
-	 			Password: <%= f.password_field :password%>
-	 		<br/><%= f.submit "Login"%>
-	 		<%end%>
+			<%if flash[:notice] %>
+				<div id = "notice"><%= flash[:notice] %> </div>
+			<%end%>
+			<div id = "signIn">
+				<%=button_tag "Sign In"%>
+			</div>
+
+			<p> Some modal </p>
+
+			<div id = "logFields">
+	 			<%= form_for :sessions, :url => {:controller => "sessions", :action => "create"}, method: :post do |f| %>
+	 				User: <%= f.text_field :username%><br/>
+	 				Password: <%= f.password_field :password%>
+	 			<br/><%= f.submit "Login"%>
+	 			<%end%>
+	 		</div>
 	 		<%= button_to "Register", new_user_path, method: :get %>
 	 		<%= link_to "Forgot password", {:controller => "users", :action => "email"}, method: :post%>
 	 	</div>

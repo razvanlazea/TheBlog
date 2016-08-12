@@ -1,9 +1,7 @@
 <div id = "register">
-	<div id = "notice">
-		<% flash.each do |name, msg| -%>
-			<%=content_tag :div, msg, class: name %>
-		<% end %>
-	</div>
+	<%if flash[:alert] %>
+		<div id = "notice"><%= flash[:alert] %> </div>
+	<%end%>
 	<%=form_for :users, :url => {:action => "create"}, :html => {class: "newUser"}, remote: true do |f| %>
 		Username: <br/>
 		<%= f.text_field :username, :required => true%> <br/>

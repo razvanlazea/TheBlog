@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 		@users = User.all
 		@users.each do |u|
 			if u.username == params[:users][:username] || u.email == params[:users][:email]
-				flash[:notice] = "Username or email already exists."
+				flash[:alert] = "Username or email already exists."
 				redirect_to new_user_path and return
 			end
 		end
