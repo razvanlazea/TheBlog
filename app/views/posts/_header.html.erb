@@ -5,17 +5,11 @@
 			<%if flash[:notice] %>
 				<div id = "notice"><%= flash[:notice] %> </div>
 			<%end%>
-			<div id = "signIn">
-				<%=button_tag "Sign In"%>
-			</div>
-
-			<div id = "logFields">
 	 			<%= form_for :sessions, :url => {:controller => "sessions", :action => "create"}, method: :post do |f| %>
 	 				User: <%= f.text_field :username%><br/>
 	 				Password: <%= f.password_field :password%>
 	 			<br/><%= f.submit "Login"%>
 	 			<%end%>
-	 		</div>
 	 		<%= button_to "Register", new_user_path, method: :get %>
 	 		<%= link_to "Forgot password", {:controller => "users", :action => "email"}, method: :post%>
 	 	</div>

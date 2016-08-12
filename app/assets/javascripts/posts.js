@@ -86,10 +86,6 @@ $(document).ready(function(){
 				return true
 			}
 		})
-		$('#signIn').on('click', function(){
-			$(this).hide();
-			$('#logFields').slideDown('fast');
-		});
 
 	};
 
