@@ -19,6 +19,8 @@ gem 'figaro'
 
 gem 'image_processing'
 
+gem 'jquery-colorbox-rails'
+
 gem 'sendgrid'	
 
 gem 'mini_magick'

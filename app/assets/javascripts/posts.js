@@ -1,15 +1,15 @@
 counter = 0;
-$(document).ready(function(){
-
-	var ceva = function(){
-		console.log("se aplica events");
-		function addImage(divName){
+function addImage(divName){
 			var existingInput = $('#'+divName).find('input:first-child');
 			$('#'+divName).append(existingInput.clone().attr("name", "post[image][img" + counter + "]"));
 			counter += 1;
-		}
+};
 
-
+$(document).ready(function(){
+		
+		var ceva = function(){
+		console.log("se aplica events");
+		
 
 		$('#addAComment').on('click', function(){
 			$('.newComment').slideDown('fast');
@@ -86,6 +86,7 @@ $(document).ready(function(){
 				return true
 			}
 		})
+
 	};
 
 	// $(document).ready(ceva);
