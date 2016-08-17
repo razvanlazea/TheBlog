@@ -1,28 +1,29 @@
 <%= render(partial: "header") %>
 
 <div class = "articles">
-	<%= form_for :post, :url => {:action => "update"}, method: :put do |f| %>
-		<p style = "margin-top: 20px;">
-		Title: <br/> <%= f.text_field :title %><br/>
-		Content: <br/> <%= f.text_area :content, cols: 31, rows: 30 %>
-		<br/>
-		<%= f.fields_for :image do |i| %>
-			<div id = "im">
-				<%= i.file_field :img %><br/>
-			</div>
-			<button type = "button" onclick = "addImage('im')"> + </button>
+	<% if session[:user_id] == @post.name || session[:admin] == @post.name %>
+		<%= form_for :post, :url => {:action => "update"}, method: :put do |f| %>
+			<p style = "margin-top: 20px;">
+			Title: <br/> <%= f.text_field :title %><br/>
+			Content: <br/> <%= f.text_area :content, cols: 31, rows: 30 %>
+			<br/>
+			<%= f.fields_for :image do |i| %>
+				<div id = "im">
+					<%= i.file_field :img %><br/>
+				</div>
+				<button type = "button" onclick = "addImage('im')"> + </button>
 
-		<% end %>
-		<div class = "images">
-		<% @post.images.each do |i| %>
-			<div class = "deleteImage">
-			<%= link_to image_tag(i.img.thumb), {:controller => "images", :action => "destroy", :id => i.id, :post_id => @post.id}, method: :delete %>
+			<% end %>
+			<div class = "images">
+			<% @post.images.each do |i| %>
+				<div class = "deleteImage">
+				<%= link_to image_tag(i.img.thumb), {:controller => "images", :action => "destroy", :id => i.id, :post_id => @post.id}, method: :delete %>
+				</div>
+			<%end%>
 			</div>
-		<%end%>
-		</div>
-		<%= f.submit "Edit article", :class => "editArticle" %>
+			<%= f.submit "Edit article", :class => "editArticle" %>
+		<%end %>
 	<%end %>
-	
 </div>
 
 

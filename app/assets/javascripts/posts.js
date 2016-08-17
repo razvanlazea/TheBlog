@@ -2,6 +2,7 @@ counter = 0;
 function addImage(divName){
 			var existingInput = $('#'+divName).find('input:first-child');
 			$('#'+divName).append(existingInput.clone().attr("name", "post[image][img" + counter + "]"));
+			$('#'+divName).append("<br/>");
 			counter += 1;
 };
 

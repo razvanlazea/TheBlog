@@ -1,5 +1,6 @@
 <%= render(partial: "header") %>
 <div class = "articles">
+	<%if session[:user_id] || session[:admin]%>
 	<%= form_for :post, :url => {:action => "create"}, :html => {multipart: true}, method: :post do |f| %>
 		<p style = "margin-top: 20px;">
 		Title: <br/> <%= f.text_field :title %><br/>
@@ -15,6 +16,6 @@
 		
 		<%= f.submit "Post article" %>
 	<%end %>
-	
+	<%end%>
 </div>
 
