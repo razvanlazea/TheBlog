@@ -43,7 +43,6 @@ class UsersController < ApplicationController
 	def find
 		@user = User.find_by_email(params[:users][:email])
 		
-
 		if @user 
 			@key = Key.new
 			@key.token = SecureRandom.uuid

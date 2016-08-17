@@ -11,13 +11,15 @@
 			<% if session[:admin] %>
 				<%= link_to (render partial: "comment", object: comment), {:controller => "comments", :action => "destroy", :id => comment.id, :post_id => @post.id}, method: :delete, :id => "deleteCom" %>
 			<% else %>
-				<%= render partial: "comment", object: comment %>	
+				<div id = "com">
+					<%= render partial: "comment", object: comment %>	
+				</div>
 			<% end %>
 		<%end%>
 	</div>
 	<br/><p id = "addAComment">Add a comment </p><br/>
 		<div class = "newComment">
-		<%= form_for ([@comment.post, @comment]) do |f| %>
+		<%= form_for [@comment.post, @comment] do |f| %>
 			Name: <br/><%= f.text_field :name %> <br/>
 			Comment: <br/><%= f.text_area :content, cols: 70, rows: 6 %> <br/>
 			<%= button_to "Post comment"%>

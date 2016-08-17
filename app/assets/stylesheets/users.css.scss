@@ -17,8 +17,12 @@
 }
 
 table, th, td {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 	border: 1px solid black;
 	border-collapse: collapse;
+	max-width: 300px;
 }
 
 th, td {

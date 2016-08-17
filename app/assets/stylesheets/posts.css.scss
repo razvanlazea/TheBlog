@@ -75,6 +75,9 @@ div.artHead {
 	margin-left: 10px;
 	margin-right: 10px;
 	border-bottom: 2px solid lightgrey;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 div.indexArtBody {
@@ -98,6 +101,7 @@ div.indexArtBody {
 	margin-left: 10px;
 	margin-top: 5px;
 	margin-bottom: 5px;
+	word-wrap: break-word;
 }
 
 .author {

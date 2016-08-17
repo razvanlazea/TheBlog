@@ -12,8 +12,9 @@ class CommentsController < ApplicationController
       @comment.post_id = params[:post_id]
       	
     if @comment.save
-  		redirect_to Post.find_by_id(params[:post_id]) 
-  	end
+  	 redirect_to Post.find(params[:post_id])
+      
+    end
   end
 
   def destroy

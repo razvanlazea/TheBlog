@@ -30,6 +30,7 @@ $(document).ready(function(){
 		$('.indexArticle').on('mouseleave', function(){
 			$(this).animate({'top': '0px', 'left': '0px'}, 'fast');
 		});
+
 		$('.regInput').on('input', function(){
 			if($(this).next().prop("tagName") != 'B'){
 				if($(this).val().length < 6){
@@ -73,9 +74,9 @@ $(document).ready(function(){
 			}
 		})
 
-		$('#deleteCom').bind('ajax:success', function(){
-			$(this).fadeOut();
-		})
+		// $('#deleteCom').bind('ajax:success', function(){
+		// 	$(this).fadeOut();
+		// })
 
 		$('.newUser').submit(function(e){
 			e.preventDefault();
@@ -86,7 +87,6 @@ $(document).ready(function(){
 				return true
 			}
 		})
-
 	};
 
 	// $(document).ready(ceva);

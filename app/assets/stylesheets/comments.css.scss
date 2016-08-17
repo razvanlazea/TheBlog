@@ -9,6 +9,10 @@
 	font-weight: bold;
 	margin-bottom: 5px;
 	border-bottom: 1px solid ghostwhite;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	word-wrap: break-word;
 }
 
 .comContent {
@@ -24,7 +28,10 @@
 	
 	box-shadow: 3px 3px 2px grey;
 	border-radius: 6px;
-
+	/*overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;*/
+	word-wrap: break-word;
 }
 
 .newComment {
