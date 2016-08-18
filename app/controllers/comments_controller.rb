@@ -12,18 +12,20 @@ class CommentsController < ApplicationController
       @comment.post_id = params[:post_id]
       	
     if @comment.save
-  	 redirect_to Post.find(params[:post_id])
-      
+  	 respond_to do |format|
+      format.html {redirect_to Post.find(params[:post_id])}
+      format.js
+     end
     end
   end
 
   def destroy
     @comment = Comment.find(params[:id])
-    @comment.destroy
-    respond_to do |format|
-      format.html{ redirect_to Post.find(params[:post_id])}
-      format.json {head :no_content}
-      format.js  { render :layout => false}
+    if @comment.destroy
+      respond_to do |format|
+        format.html{ redirect_to Post.find(params[:post_id])}
+        format.js 
+     end
     end
   end
 

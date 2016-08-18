@@ -3,17 +3,7 @@
 <div class = "articles">
 	<% if session[:user_id] == @post.name || session[:admin] == @post.name %>
 		<%= form_for :post, :url => {:action => "update"}, method: :put do |f| %>
-			<p style = "margin-top: 20px;">
-			Title: <br/> <%= f.text_field :title %><br/>
-			Content: <br/> <%= f.text_area :content, cols: 31, rows: 30 %>
-			<br/>
-			<%= f.fields_for :image do |i| %>
-				<div id = "im">
-					<%= i.file_field :img %><br/>
-				</div>
-				<button type = "button" onclick = "addImage('im')"> + </button>
-
-			<% end %>
+			<%= render partial: "articleForm", locals: {f: f} %>
 			<div class = "images">
 			<% @post.images.each do |i| %>
 				<div class = "deleteImage">

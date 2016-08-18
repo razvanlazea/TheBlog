@@ -1,0 +1,5 @@
+
+var com = $('.com:last').clone();
+$('.comments').append(com);
+$('.comments').find('.com:last').find('.comName').text('<%= @comment.name%>');
+$('.comments').find('.com:last').find('.comContent').text('<%= @comment.content%>');
