@@ -12,6 +12,9 @@
  *= require_tree .
  */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
  #header {
 	text-align: center;
 	background-color: lightgrey;
@@ -53,4 +56,39 @@
 
 #logFields {
 	display: none;
+}
+
+#mod{
+	font-size: 15px;
+	text-align: right;
+	position: absolute;
+	top: 25%;
+	left: 40%;
+	bottom: 25%;
+	background-color: lightgrey;
+	border: 2px solid grey;
+	border-radius: 10px;
+	width: 300px;
+	height: 300px;
+}
+
+#mod2{
+	font-size: 15px;
+	text-align: left;
+	padding: 10px;
+	position: absolute;
+	top: 25%;
+	left: 40%;
+	bottom: 25%;
+	background-color: lightgrey;
+	border: 2px solid grey;
+	border-radius: 10px;
+	width: 450px;
+	height: 350px;	
+}
+
+#logForm{
+ 	position: relative;
+ 	top: 25%;
+ 	right: 5%;
 }

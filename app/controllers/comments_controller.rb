@@ -21,12 +21,17 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
+    authorize! :destroy, @comment
     if @comment.destroy
       respond_to do |format|
         format.html{ redirect_to Post.find(params[:post_id])}
         format.js 
      end
     end
+  end
+
+  def current_user
+    User.find_by_username(session[:user_id])
   end
 
   def comment_params

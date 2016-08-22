@@ -12,6 +12,7 @@
 			<%end%>
 		</tr>
 	<% @users.each do |user| %>
+		<% next if user.role_id == 1 %>
 		<%= render partial: "user", object: user %>
 	<% end %>
 	</table>

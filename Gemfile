@@ -17,6 +17,12 @@ gem 'fastimage'
 
 gem 'figaro'
 
+gem 'bootstrap-sass'
+
+gem 'autoprefixer-rails'
+
+gem 'cancancan'
+
 gem 'image_processing'
 
 gem 'jquery-colorbox-rails'

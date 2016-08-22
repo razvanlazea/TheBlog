@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 			redirect_to new_user_path
 		else
 			@user = User.new(user_params)
+			@user.role_id = 2
 			if @user.save
 				redirect_to posts_url
 			end
@@ -28,6 +29,7 @@ class UsersController < ApplicationController
 
 	def destroy
 		@user = User.find(params[:id])
+		authorize! :destroy, @user
 		# delete all posts from @user
 		@posts = Post.all
 		@posts.each do |post|
@@ -80,6 +82,9 @@ class UsersController < ApplicationController
 		redirect_to posts_url
 	end
 
+	def current_user
+    	User.find_by_username(session[:user_id])
+  	end
 
 	def user_params
 		params.require(:users).permit(:username, :password, :name, :id, :email, :token)

@@ -1,23 +1,50 @@
 <div id = "header">
 	<%= link_to "The Blog", root_path, :id => "theblog" %>
+		
 		<%if !session[:user_id] && !session[:admin] %> 
 		<div id = "login">
+		<button type = "button" data-toggle = "modal" data-target = "#loginModal">Sign In </button><br/>
+		<button type = "button" data-toggle = "modal" data-target = "#registerModal">Register </button>
+		</div>
+
+		<div id = "registerModal" class = "modal fade" role = "dialog">
+			<div id = "mod2">
+			<%if flash[:alert] %>
+				<div id = "notice"><%= flash[:alert] %> </div>
+			<%end%>
+			<%=form_for :users, :url => {:controller => "users", :action => "create"}, :html => {class: "newUser"}, remote: true do |f| %>
+				Username: <br/>
+				<%= f.text_field :username, :required => true%> <br/>
+				Password: <br/>
+				<%= f.password_field :password, :required => true, class: 'regInput' %> <br/>
+				Confirm password: <br/>
+				<%= f.password_field :confirm, :required => true, class: 'confirm' %> <br/>
+				Name: <br/>
+				<%= f.text_field :name, :required => true%> <br/>
+				Email: <br/>
+				<%= f.email_field :email, :required => true%> <br/>
+				<%= f.submit "Register" %>
+			<%end%>	
+			</div>
+		</div>
+		<div id = "loginModal" class = "modal fade" role = "dialog">
+		<div id = "mod">
 			<%if flash[:notice] %>
 				<div id = "notice"><%= flash[:notice] %> </div>
 			<%end%>
-	 			<%= form_for :sessions, :url => {:controller => "sessions", :action => "create"}, method: :post do |f| %>
-	 				User: <%= f.text_field :username%><br/>
+	 			<%= form_for :sessions, :url => {:controller => "sessions", :action => "create"}, :html => {:id => "logForm"}, method: :post do |f| %>
+	 				Username: <%= f.text_field :username%><br/>
 	 				Password: <%= f.password_field :password%>
+	 				<%= link_to "Forgot password", {:controller => "users", :action => "email"}, method: :post%>
 	 			<br/><%= f.submit "Login"%>
 	 			<%end%>
-	 		<%= button_to "Register", new_user_path, method: :get %>
-	 		<%= link_to "Forgot password", {:controller => "users", :action => "email"}, method: :post%>
+	 			</div>
 	 	</div>
 	 	<%else%>
 		<div id = "login">
 	 		<%= button_to "Add Article", new_post_path, method: :get%>
 	 		<%= button_to "Logout", {:controller => "sessions", :action => "destroy"}, method: :delete %>
-	 		<% if session[:admin] %>
+	 		<% if session[:user_id] == "admin" %>
 	 			<%= button_to "Users", users_path, method: :get %>
 	 		<% end %>
 		</div>

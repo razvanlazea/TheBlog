@@ -1,11 +1,16 @@
 class PostsController < ApplicationController
   # before_action :set_post, only: [:show, :edit, :update]
+  rescue_from CanCan::AccessDenied do |e|
+    render "accessDenied"
+  end
+
   def index
   	@posts = Post.all.paginate(page: params[:page], per_page: 3)
   end
 
   def new
     @post = Post.new
+    authorize! :create, @post
     @image = @post.images.new
   end
 
@@ -21,11 +26,17 @@ class PostsController < ApplicationController
   def show   
     @post = Post.find(params[:id])
     @comment = @post.comments.new 
+    authorize! :read, @post
   end
 
   def edit
     @post = Post.find(params[:id])
-    
+    authorize! :edit, @post
+
+  end
+
+  def current_user
+    User.find_by_username(session[:user_id])
   end
 
   def update
@@ -38,6 +49,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
+    authorize! :destroy, @post
     # delete all comments from @post
     @comments = Comment.all
     @comments.each do |comment|
