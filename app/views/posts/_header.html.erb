@@ -23,6 +23,8 @@
 				<%= f.text_field :name, :required => true%> <br/>
 				Email: <br/>
 				<%= f.email_field :email, :required => true%> <br/>
+				Role: <br/>
+				<%= f.text_field :role_id, :required => true %> <br/>
 				<%= f.submit "Register" %>
 			<%end%>	
 			</div>
@@ -44,7 +46,7 @@
 		<div id = "login">
 	 		<%= button_to "Add Article", new_post_path, method: :get%>
 	 		<%= button_to "Logout", {:controller => "sessions", :action => "destroy"}, method: :delete %>
-	 		<% if session[:user_id] == "admin" %>
+	 		<% if session[:user_id] == "admin" || session[:admin] %>
 	 			<%= button_to "Users", users_path, method: :get %>
 	 		<% end %>
 		</div>

@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 				flash[:notice] = "Wrong username and/or password."
 				redirect_to :back
 			end
-		# end
+		end
 	end	
 
 	def destroy
