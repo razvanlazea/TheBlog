@@ -1,6 +1,6 @@
 <%= render(partial: "header") %>
 <div class = "articles">
-	<%if session[:user_id] || session[:admin]%>
+	<%if session[:user_id]%>
 		<%= form_for :post, :url => {:action => "create"}, :html => {multipart: true}, method: :post do |f| %>
 			<%= render partial: "articleForm", locals: {f: f} %>
 			

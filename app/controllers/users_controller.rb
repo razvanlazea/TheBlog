@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 			redirect_to new_user_path
 		else
 			@user = User.new(user_params)
+			@user.role_id = 2
 			if @user.save
 				redirect_to posts_url
 			end

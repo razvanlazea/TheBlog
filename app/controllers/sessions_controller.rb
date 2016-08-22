@@ -5,10 +5,10 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		if params[:sessions][:username] == ADMIN && params[:sessions][:password] == PASSWORD
-			session[:admin] = ADMIN
-			redirect_to :back
-		else
+		# if params[:sessions][:username] == ADMIN && params[:sessions][:password] == PASSWORD
+		# 	session[:admin] = ADMIN
+		# 	redirect_to :back
+		# else
 			user = User.find_by_username(params[:sessions][:username])
 			if user && user.password == params[:sessions][:password]
 				session[:user_id] = user.username 
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 				flash[:notice] = "Wrong username and/or password."
 				redirect_to :back
 			end
-		end
+		# end
 	end	
 
 	def destroy

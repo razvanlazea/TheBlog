@@ -1,7 +1,7 @@
 <%= render(partial: "header") %>
 
 <div class = "articles">
-	<% if session[:user_id] == @post.name || session[:admin] == @post.name %>
+	<% if session[:user_id] == @post.name %>
 		<%= form_for :post, :url => {:action => "update"}, method: :put do |f| %>
 			<%= render partial: "articleForm", locals: {f: f} %>
 			<div class = "images">

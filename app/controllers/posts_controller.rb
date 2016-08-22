@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    # authorize! :create, @post
+    authorize! :create, @post
     @image = @post.images.new
   end
 
@@ -26,12 +26,12 @@ class PostsController < ApplicationController
   def show   
     @post = Post.find(params[:id])
     @comment = @post.comments.new 
-    # authorize! :read, @post
+    authorize! :read, @post
   end
 
   def edit
     @post = Post.find(params[:id])
-    # authorize! :edit, @post
+    authorize! :edit, @post
 
   end
 
@@ -49,7 +49,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    # authorize! :destroy, @post
+    authorize! :destroy, @post
     # delete all comments from @post
     @comments = Comment.all
     @comments.each do |comment|
