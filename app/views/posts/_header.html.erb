@@ -4,29 +4,13 @@
 		<%if !session[:user_id] && !session[:admin] %> 
 		<div id = "login">
 		<button type = "button" data-toggle = "modal" data-target = "#loginModal">Sign In </button><br/>
-		<button type = "button" data-toggle = "modal" data-target = "#registerModal">Register </button>
+		<%= button_to "Register", new_user_path, method: :get %>
+		<!-- <button type = "button" data-toggle = "modal" data-target = "#registerModal">Register </button> -->
 		</div>
 
 		<div id = "registerModal" class = "modal fade" role = "dialog">
 			<div id = "mod2">
-			<%if flash[:alert] %>
-				<div id = "notice"><%= flash[:alert] %> </div>
-			<%end%>
-			<%=form_for :users, :url => {:controller => "users", :action => "create"}, :html => {class: "newUser"}, remote: true do |f| %>
-				Username: <br/>
-				<%= f.text_field :username, :required => true%> <br/>
-				Password: <br/>
-				<%= f.password_field :password, :required => true, class: 'regInput' %> <br/>
-				Confirm password: <br/>
-				<%= f.password_field :confirm, :required => true, class: 'confirm' %> <br/>
-				Name: <br/>
-				<%= f.text_field :name, :required => true%> <br/>
-				Email: <br/>
-				<%= f.email_field :email, :required => true%> <br/>
-				Role: <br/>
-				<%= f.text_field :role_id, :required => true %> <br/>
-				<%= f.submit "Register" %>
-			<%end%>	
+			
 			</div>
 		</div>
 		<div id = "loginModal" class = "modal fade" role = "dialog">

@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
 	def destroy
 		@user = User.find(params[:id])
-		authorize! :destroy, @user
+		# authorize! :destroy, @user
 		# delete all posts from @user
 		@posts = Post.all
 		@posts.each do |post|
@@ -86,6 +86,6 @@ class UsersController < ApplicationController
   	end
 
 	def user_params
-		params.require(:users).permit(:username, :password, :name, :id, :email, :token)
+		params.require(:users).permit(:username, :password, :name, :id, :email, :token, :role_id)
 	end
 end
