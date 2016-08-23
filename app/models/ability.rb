@@ -6,6 +6,7 @@ class Ability
 		if user.role_id == 2
 			can :manage, Post
 			can :create, Comment
+			cannot :manage, User
 
 		elsif user.role_id == 1 
 			can :manage, Post
@@ -13,10 +14,12 @@ class Ability
 			can :manage, Comment
 			cannot :edit, Comment
 			can :destroy, User
+			can :manage, User
 		else
 			can :read, Post
 			can :create, Comment
 			can :read, Comment
+			cannot :manage, User
 		end
 	end
 end

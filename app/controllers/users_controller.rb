@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
 
+	rescue_from CanCan::AccessDenied do |e|
+		render "/posts/accessDenied" 
+	end
+
 	def index
-		@users = User.all
+		@users = User.all		
+		authorize! :read, User
 	end
 	
 	def new
@@ -29,7 +34,7 @@ class UsersController < ApplicationController
 
 	def destroy
 		@user = User.find(params[:id])
-		# authorize! :destroy, @user
+		authorize! :destroy, @user
 		# delete all posts from @user
 		@posts = Post.all
 		@posts.each do |post|
