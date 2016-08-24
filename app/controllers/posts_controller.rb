@@ -12,8 +12,9 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
     authorize! :create, @post
+    @post = Post.new
+    
     @image = @post.images.new
   end
 
@@ -43,11 +44,7 @@ class PostsController < ApplicationController
   end
 
   def update
-    puts 'parametrii'
-    puts params.to_yaml
     @post = Post.find(params[:id])
-    puts 'post'
-    puts @post.to_yaml
     add_images
     if @post.update(post_params)
       redirect_to @post

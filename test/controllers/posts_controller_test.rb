@@ -7,13 +7,13 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    get :new
+    # get :new
     assert_response :success
   end
 
   test "should get create" do
     post :create, {post: {content: 'con', image: []}}
     assert_response :redirect
-  end
+  end 
 
 end
