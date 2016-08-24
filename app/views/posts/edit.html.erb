@@ -1,19 +1,25 @@
 <%= render(partial: "header") %>
-
-<div class = "articles">
-	<% if session[:user_id] == @post.name %>
-		<%= form_for :post, :url => {:action => "update"}, method: :put do |f| %>
-			<%= render partial: "articleForm", locals: {f: f} %>
-			<div class = "images">
-			<% @post.images.each do |i| %>
-				<div class = "deleteImage">
-				<%= link_to image_tag(i.img.thumb), {:controller => "images", :action => "destroy", :id => i.id, :post_id => @post.id}, method: :delete %>
-				</div>
-			<%end%>
-			</div>
-			<%= f.submit "Edit article", :class => "editArticle" %>
-		<%end %>
-	<%end %>
+<div class = "container">
+	<div class = "row">
+		<div class = "col-lg-2 col-md-3 col-xs-4">
+		</div>
+		<div class = "articles col-lg-8 col-md-6 col-xs-4">
+			<% if session[:user_id] == @post.name %>
+				<%= form_for :post, :url => {:action => "update"}, method: :put do |f| %>
+					<%= render partial: "articleForm", locals: {f: f} %>
+					<div class = "images">
+					<% @post.images.each do |i| %>
+						<div class = "deleteImage">
+						<%= link_to image_tag(i.img.thumb), {:controller => "images", :action => "destroy", :id => i.id, :post_id => @post.id}, method: :delete %>
+						</div>
+					<%end%>
+					</div>
+					<%= f.submit "Edit article", :class => "editArticle" %>
+				<%end %>
+			<%end %>
+		</div>
+		<div class = "col-lg-2 col-md-3 col-xs-4">
+		</div>
+	</div>
 </div>
-
 

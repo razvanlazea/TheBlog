@@ -1,8 +1,15 @@
 <%= render(partial: "header") %>
-	<div class = "articles">
-		<% @posts.each do |p| %>
-			<%= render(partial: "article", object: p) %>
-		<% end %>
-		<%= will_paginate @posts %>
+<div class = "container">
+	<div class = "row">
+		<div class = "col-lg-2 col-md-3 col-xs-4">
+		</div>
+		<div class = "articles col-lg-8 col-md-6 col-xs-4">
+			<% @posts.each do |p| %>
+				<%= render(partial: "article", object: p) %>
+			<% end %>
+			<%= will_paginate @posts %>
+		</div>
+		<div class = "col-lg-2 col-md-3 col-xs-4">
+		</div>
 	</div>
-
+</div>

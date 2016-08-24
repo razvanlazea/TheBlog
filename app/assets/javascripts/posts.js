@@ -86,12 +86,7 @@ $(document).ready(function(){
 			else{
 				return true
 			}
-		});
-
-		$('#registerModal').on('hide.bs.modal', function (e) {
-
-		});
-		
+		});		
 	};
 
 	// $(document).ready(ceva);

@@ -1,11 +1,18 @@
 <%= render(partial: "header") %>
-<div class = "articles">
-	<%if session[:user_id]%>
-		<%= form_for :post, :url => {:action => "create"}, :html => {multipart: true}, method: :post do |f| %>
-			<%= render partial: "articleForm", locals: {f: f} %>
-			
-			<%= f.submit "Post article" %>
-		<%end %>
-	<%end%>
+<div class = "container">
+	<div class = "row">
+		<div class = "col-lg-2 col-md-3 col-xs-3">
+		</div>
+		<div class = "articles col-lg-8 col-md-6 col-xs-6">
+			<%if session[:user_id]%>
+				<%= form_for :post, :url => {:action => "create"}, :html => {multipart: true}, method: :post do |f| %>
+				<%= render partial: "articleForm", locals: {f: f} %>
+				<%= f.submit "Post article" %>
+				<%end %>
+			<%end%>
+		</div>
+		<div class = "col-lg-2 col-md-3 col-xs-3">
+		</div>
+	</div>
 </div>
 

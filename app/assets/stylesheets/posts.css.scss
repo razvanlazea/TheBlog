@@ -4,14 +4,12 @@ body {
 }
 
 .articles {
-	display: block;
-	width: auto;
-	max-width: 740px;
+	min-width: 320px;
 	position: relative;
 	margin: auto;
 	text-align: center;
 	border-radius: 0px 0px 10px 10px;
-	top: -25px;
+	top: -5px;
 	background: linear-gradient(skyblue, white);
 	box-shadow: 10px 10px 5px grey;
 	border-right: 4px solid ghostwhite;
@@ -33,11 +31,6 @@ body {
 	color: black;
 }
 
-.articleLink:hover {
-	/*opacity: 0.5;*/
-	
-}
-
 div.indexArticle {
 	background-color: ghostwhite;
 	position: relative;
@@ -45,7 +38,7 @@ div.indexArticle {
 	margin-right: 20px;
 	margin-left: 20px;
 	border-radius: 10px;
-	width: 700px;
+	width: auto;
 	height: auto;
 	border-bottom: 3px solid lightgrey;
 	border-right: 3px solid lightgrey;
@@ -59,7 +52,7 @@ div.showArticle {
 	margin-right: auto;
 	margin-left: auto;
 	border-radius: 10px;
-	width: 700px;
+	width: auto;
 	height: auto;
 	border-bottom: 3px solid lightgrey;
 	border-right: 3px solid lightgrey;
@@ -127,8 +120,6 @@ div.indexArtBody {
 .month {
 	border-right: 3px solid darkgrey;
 	border-bottom: 3px solid darkgrey;
-
-	/*height: 20px;*/
 	width: 50px;
 	text-align: center;
 	font-size: 20px;
@@ -144,7 +135,6 @@ div.indexArtBody {
 .day {
 	border-radius: 7px 5px 0px 0px;
 	background-color: orange;
-
 }
 
 .editArticle {

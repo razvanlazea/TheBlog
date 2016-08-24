@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 	rescue_from CanCan::AccessDenied do |e|
-		render "/posts/accessDenied" 
+		redirect_to controller: "posts", action: "accessDenied" 
 	end
 
 	def index

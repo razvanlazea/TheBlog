@@ -1,11 +1,14 @@
 class PostsController < ApplicationController
-  # before_action :set_post, only: [:show, :edit, :update]
   rescue_from CanCan::AccessDenied do |e|
-    render "accessDenied"
+    redirect_to action: "accessDenied"
   end
 
   def index
   	@posts = Post.all.paginate(page: params[:page], per_page: 3)
+  end
+
+  def accessDenied
+
   end
 
   def new
@@ -40,7 +43,11 @@ class PostsController < ApplicationController
   end
 
   def update
+    puts 'parametrii'
+    puts params.to_yaml
     @post = Post.find(params[:id])
+    puts 'post'
+    puts @post.to_yaml
     add_images
     if @post.update(post_params)
       redirect_to @post

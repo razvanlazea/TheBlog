@@ -16,6 +16,7 @@ TheBlog::Application.routes.draw do
   post 'users/find', to: "users#find"
   post 'users/email', to: "users#email"
   get 'recovery', to: "users#edit"
+  get 'denied', to: "posts#accessDenied"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
