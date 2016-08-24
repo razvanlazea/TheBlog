@@ -1,13 +1,20 @@
-<div id = "header">
-	<%= link_to "The Blog", root_path, :id => "theblog" %>
-		
+
+<div id = "header" >
+<div class = "container-fluid">
+<div class = "row">
+	<div class = "col-md-4">
+	</div>
+	<div class = "col-md-4">
+	<%= link_to "The Blog", root_path, :id => "theblog"%>
+	</div>	
 		<%if !session[:user_id] && !session[:admin] %> 
+		<div class = "col-md-4">
 		<div id = "login">
-		<button type = "button" data-toggle = "modal" data-target = "#loginModal">Sign In </button><br/>
+		<button type = "button" data-dismiss = "modal" data-toggle = "modal" data-target = "#loginModal">Sign In </button><br/>
 		
 		<button type = "button" data-toggle = "modal" data-target = "#registerModal">Register </button>
 		</div>
-
+		</div>
 		<div id = "registerModal" class = "modal fade" role = "dialog">
 			<div id = "mod2">
 			<%if flash[:alert] %>
@@ -42,12 +49,18 @@
 	 			</div>
 	 	</div>
 	 	<%else%>
+	 	<div class = "col-md-4">
 		<div id = "login">
+		
 	 		<%= button_to "Add Article", new_post_path, method: :get%>
 	 		<%= button_to "Logout", {:controller => "sessions", :action => "destroy"}, method: :delete %>
 	 		<% if session[:user_id] == "razvan3"%>
 	 			<%= button_to "Users", users_path, method: :get %>
 	 		<% end %>
 		</div>
+		</div>
 		<%end %> 
+		
+</div>
+</div>
 </div>

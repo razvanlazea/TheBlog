@@ -1,10 +1,8 @@
 <%= render(partial: "header") %>
-
-<div class = "articles">
-	<% @posts.each do |p| %>
-	<%= render(partial: "article", object: p) %>
-	<% end %>
-	<%= will_paginate @posts %>
-	
-</div>
+	<div class = "articles">
+		<% @posts.each do |p| %>
+			<%= render(partial: "article", object: p) %>
+		<% end %>
+		<%= will_paginate @posts %>
+	</div>
 

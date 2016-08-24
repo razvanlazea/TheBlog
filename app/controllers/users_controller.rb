@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 			end
 		end
 		if params[:users][:username] == ADMIN
-			redirect_to new_user_path
+			redirect_to :back
 		else
 			@user = User.new(user_params)
 			@user.role_id = 2

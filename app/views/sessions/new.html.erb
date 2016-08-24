@@ -1,0 +1,12 @@
+<div id = "register">
+	<%if flash[:notice] %>
+				<div id = "notice"><%= flash[:notice] %> </div>
+			<%end%>
+	 			<%= form_for :sessions, :url => {:controller => "sessions", :action => "create"}, :html => {:id => "logForm"}, method: :post do |f| %>
+	 				Username: <%= f.text_field :username%><br/>
+	 				Password: <%= f.password_field :password%>
+	 				<%= link_to "Forgot password", {:controller => "users", :action => "email"}, method: :post%>
+	 			<br/><%= f.submit "Login"%>
+	 			<%end%>
+
+</div>

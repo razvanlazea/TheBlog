@@ -9,6 +9,7 @@ TheBlog::Application.routes.draw do
   end
   root 'posts#index'
   resources :users
+  resources :sessions
   post 'sessions/create', to: "sessions#create"
   delete 'sessions/delete', to: "sessions#destroy"
   get 'keys', to: "keys#index"

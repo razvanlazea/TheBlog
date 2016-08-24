@@ -1,18 +1,18 @@
 <div id = "register">
-		<%if flash[:alert] %>
-				<div id = "notice"><%= flash[:alert] %> </div>
-			<%end%>
-			<%=form_for :users, :url => {:controller => "users", :action => "create"}, :html => {class: "newUser"}, remote: true do |f| %>
-				Username: <br/>
-				<%= f.text_field :username, :required => true%> <br/>
-				Password: <br/>
-				<%= f.password_field :password, :required => true, class: 'regInput' %> <br/>
-				Confirm password: <br/>
-				<%= f.password_field :confirm, :required => true, class: 'confirm' %> <br/>
-				Name: <br/>
-				<%= f.text_field :name, :required => true%> <br/>
-				Email: <br/>
-				<%= f.email_field :email, :required => true%> <br/>
-				<%= f.submit "Register" %>
-<%end%>	
+	<%if flash[:alert] %>
+		<div id = "notice"><%= flash[:alert] %> </div>
+	<%end%>
+	<%=form_for :users, :url => {:controller => "users", :action => "create"}, :html => {class: "newUser"}, remote: true do |f| %>
+		Username: <br/>
+		<%= f.text_field :username, :required => true%> <br/>
+		Password: <br/>
+		<%= f.password_field :password, :required => true, class: 'regInput' %> <br/>
+		Confirm password: <br/>
+		<%= f.password_field :confirm, :required => true, class: 'confirm' %> <br/>
+		Name: <br/>
+		<%= f.text_field :name, :required => true%> <br/>
+		Email: <br/>
+		<%= f.email_field :email, :required => true%> <br/>
+		<%= f.submit "Register" %>
+	<%end%>	
 </div>

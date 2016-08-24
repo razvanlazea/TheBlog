@@ -9,7 +9,6 @@ function addImage(divName){
 $(document).ready(function(){
 		
 		var ceva = function(){
-		console.log("se aplica events");
 		
 
 		$('#addAComment').on('click', function(){
@@ -87,7 +86,11 @@ $(document).ready(function(){
 			else{
 				return true
 			}
-		})
+		});
+
+		$('#registerModal').on('hide.bs.modal', function (e) {
+
+		});
 		
 	};
 
