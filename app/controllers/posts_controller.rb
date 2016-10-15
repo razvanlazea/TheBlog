@@ -12,9 +12,8 @@ class PostsController < ApplicationController
   end
 
   def new
-    authorize! :create, @post
     @post = Post.new
-    
+    authorize! :create, @post
     @image = @post.images.new
   end
 

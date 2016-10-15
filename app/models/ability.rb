@@ -7,7 +7,6 @@ class Ability
 			can :manage, Post
 			can :create, Comment
 			cannot :manage, User
-
 		elsif user.role_id == 1 
 			can :manage, Post
 			cannot :edit, Post
@@ -16,6 +15,7 @@ class Ability
 			can :destroy, User
 			can :manage, User
 		else
+			can :create, Post
 			can :read, Post
 			can :create, Comment
 			can :read, Comment
